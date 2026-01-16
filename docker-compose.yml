@@ -1,0 +1,22 @@
+services:
+  yt-dlp:
+    image: ghcr.io/yt-dlp/yt-dlp:latest
+    container_name: yt-dlp
+    restart: "no"
+    volumes:
+      - ./media/youtube:/downloads
+      - ./archive.txt:/archive.txt
+      - ./channels.txt:/channels.txt
+    command: >
+      -a /channels.txt
+      --download-archive /archive.txt
+      --playlist-start 1
+      --playlist-end 1
+      --format "bv*[height<=720][vcodec=vp9]/bv*[height<=720]+ba[acodec=opus]/b[height<=720]"
+      --merge-output-format mkv
+      --embed-metadata
+      --embed-thumbnail
+      --write-info-json
+      --restrict-filenames
+      --match-filter "!is_live & !was_live & duration > 120"
+      -o "/downloads/%(channel)s/%(upload_date)s - %(title)s.%(ext)s"
