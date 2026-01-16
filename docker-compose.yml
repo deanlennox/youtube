@@ -1,6 +1,6 @@
 services:
   yt-dlp:
-    image: ghcr.io/yt-dlp/yt-dlp:latest
+    image: thr3a/yt-dlp:latest
     container_name: yt-dlp
     restart: "no"
     volumes:
