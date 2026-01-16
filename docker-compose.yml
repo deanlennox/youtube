@@ -15,7 +15,7 @@ services:
       --format "bv*[height<=720][vcodec=vp9]/bv*[height<=720]+ba[acodec=opus]/b[height<=720]"
       --merge-output-format mkv
       --embed-metadata
-      --embed-thumbnail
+      --no-embed-thumbnail
       --write-info-json
       --restrict-filenames
       --match-filter "!is_live & !was_live & duration > 120"
