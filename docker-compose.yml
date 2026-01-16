@@ -12,8 +12,8 @@ services:
       --download-archive /archive.txt
       --playlist-start 1
       --playlist-end 1
-      --format "bv*[height<=720][vcodec=vp9]/bv*[height<=720]+ba[acodec=opus]/b[height<=720]"
-      --merge-output-format mkv
+      --format "best[height<=720][ext=mp4]"
+      --merge-output-format mp4
       --embed-metadata
       --no-embed-thumbnail
       --write-info-json
